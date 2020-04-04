@@ -1,6 +1,7 @@
 FROM aroq/toolbox-secrets:0.1.16
 
 ENV ACAPI_VERSION=0.9.0
+ENV CLICK_VERSION=7.1.1
 
 COPY Dockerfile.packages.txt /etc/apk/packages.txt
 RUN apk add --no-cache --update $(grep -v '^#' /etc/apk/packages.txt)
@@ -21,6 +22,7 @@ RUN apk --update add --virtual .build-deps \
       setuptools \
       wheel \
       acapi==${ACAPI_VERSION} && \
+      click==${CLICK_VERSION} && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     apk del .build-deps && \
     rm -rf /var/cache/apk/*
