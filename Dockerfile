@@ -21,7 +21,7 @@ RUN apk --update add --virtual .build-deps \
     pip3 install --no-cache --upgrade pip \
       setuptools \
       wheel \
-      acapi==${ACAPI_VERSION} && \
+      acapi==${ACAPI_VERSION} \
       click==${CLICK_VERSION} && \
     if [ ! -e /usr/bin/pip ]; then ln -s pip3 /usr/bin/pip ; fi && \
     apk del .build-deps && \
