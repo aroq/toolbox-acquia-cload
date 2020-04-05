@@ -1,6 +1,5 @@
 FROM aroq/toolbox-secrets:0.1.16
 
-ENV ACAPI_VERSION=0.9.0
 ENV CLICK_VERSION=7.1.1
 
 COPY Dockerfile.packages.txt /etc/apk/packages.txt
